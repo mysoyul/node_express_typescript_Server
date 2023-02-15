@@ -105,6 +105,12 @@ app.delete('/api/todos/:id', (request: Request, response: Response) => {
   }
 });
 
+//Todo 전체삭제
+app.delete('/api/todos', (req: Request, res: Response) => {
+  todos.splice(0, todos.length);
+  res.send(todos);
+});
+
 //Todo 수정
 app.put('/api/todos/:id', (req: Request, res: Response) => {
   let id = Number(req.params.id);
